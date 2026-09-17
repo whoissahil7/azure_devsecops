@@ -1,0 +1,8 @@
+title = "gitleaks config for azure-python-devops"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "ignore test fixtures"
+paths = ['''app/tests/.*''']

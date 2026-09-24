@@ -5,7 +5,7 @@
 # which keeps the image small (faster pushes/pulls to/from ACR = less
 # free-tier bandwidth used).
 # =========================================================================
-FROM python:3.11-slim AS builder
+FROM python:3.14-slim AS builder
 
 WORKDIR /build
 
@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir --upgrade pip "setuptools>=78.1.1" "wheel>=0.46.2
 # Small, final image that actually runs in Azure Container Instances / App
 # Service. Runs as a non-root user for security best practice.
 # =========================================================================
-FROM python:3.11-slim AS runtime
+FROM python:3.14-slim AS runtime
 
 # Create a non-root user/group to run the app (never run containers as root)
 RUN groupadd --gid 1000 appuser && \
